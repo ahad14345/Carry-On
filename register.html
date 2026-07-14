@@ -2,26 +2,85 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CarryOn</title>
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Register</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="hero">
+    <div class="container">
 
-<h1>Register</h1>
+        <div class="form-card">
 
-<p>Under Development...</p>
+            <h1>Create Account</h1>
 
-</div>
+            <p>Join CarryOn today.</p>
+
+            <form id="registerForm">
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" id="phone" placeholder="01XXXXXXXXX">
+                </div>
+
+                <div class="form-group">
+                    <label>Role</label>
+
+                    <div class="radio-group">
+
+                        <label>
+                            <input type="radio" name="role" value="Traveler" checked>
+                            Traveler
+                        </label>
+
+                        <label>
+                            <input type="radio" name="role" value="Company">
+                            Company
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+                </div>
+
+                <button type="submit" class="btn primary">
+                    Register
+                </button>
+
+            </form>
+
+            <p class="login-link">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+
+        </div>
+
+    </div>
+
+    <script src="js/register.js"></script>
 
 </body>
 
