@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveler Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<script src="js/auth.js"></script>
+
+<div class="hero">
+
+    <h1>Traveler Dashboard</h1>
+
+    <p id="welcome"></p>
+
+    <br>
+
+    <button onclick="logout()" class="btn secondary">
+        Logout
+    </button>
+
+</div>
+
+<script>
+
+if(loggedInUser.role !== "Traveler"){
+    alert("Access Denied");
+    window.location.href="login.html";
+}
+
+document.getElementById("welcome").innerHTML =
+"Welcome, <b>" + loggedInUser.name + "</b>";
+
+</script>
+
+</body>
+</html>
