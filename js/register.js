@@ -45,18 +45,54 @@ registerForm.addEventListener("submit", function (e) {
         return;
     }
 
-    // Password Length
+    // Password Validation
     if (password.length < 8) {
         alert("Password must contain at least 8 characters.");
         return;
     }
 
-    // Password Match
     if (password !== confirmPassword) {
         alert("Passwords do not match.");
         return;
     }
 
-    alert("Validation Successful!");
+    // Get Existing Users
+    let users = JSON.parse(localStorage.getItem("carryOnUsers")) || [];
+
+    // Check Duplicate Email
+    const emailExists = users.some(user => user.email === email);
+
+    if (emailExists) {
+        alert("An account with this email already exists.");
+        return;
+    }
+
+    // Create New User
+    const newUser = {
+
+        id: Date.now(),
+
+        name: name,
+
+        email: email,
+
+        phone: phone,
+
+        role: role,
+
+        password: password
+
+    };
+
+    // Save User
+    users.push(newUser);
+
+    localStorage.setItem("carryOnUsers", JSON.stringify(users));
+
+    alert("Registration Successful!");
+
+    registerForm.reset();
+
+    window.location.href = "login.html";
 
 });
