@@ -1,7 +1,7 @@
 const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
 if (!loggedInUser) {
-    window.location.href = "login.html";
+  window.location.href = "login.html";
 }
 
 const profileForm = document.getElementById("profileForm");
@@ -19,35 +19,54 @@ roleInput.value = loggedInUser.role;
 
 // Show the correct dashboard button
 if (loggedInUser.role === "Sender") {
-    document.getElementById("travelerBack").style.display = "none";
+  document.getElementById("travelerBack").style.display = "none";
 } else {
-    document.getElementById("senderBack").style.display = "none";
+  document.getElementById("senderBack").style.display = "none";
 }
 
 // Save profile
 profileForm.addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    e.preventDefault();
+  const updatedName = nameInput.value.trim();
+  const updatedPhone = phoneInput.value.trim();
 
-    const updatedName = nameInput.value.trim();
-    const updatedPhone = phoneInput.value.trim();
+  // Empty Field Validation
+  if (updatedName === "" || updatedPhone === "") {
+    alert("Please fill in all fields.");
+    return;
+  }
 
-    let users = JSON.parse(localStorage.getItem("carryOnUsers")) || [];
+  // Name Validation
+  if (updatedName.length < 3) {
+    alert("Name must be at least 3 characters.");
+    return;
+  }
 
-    const userIndex = users.findIndex(user => user.id === loggedInUser.id);
+  // Phone Validation
+  const phonePattern = /^01\d{9}$/;
 
-    if (userIndex === -1) {
-        alert("User not found.");
-        return;
-    }
+  if (!phonePattern.test(updatedPhone)) {
+    alert("Phone number must be 11 digits and start with 01.");
+    return;
+  }
 
-    users[userIndex].name = updatedName;
-    users[userIndex].phone = updatedPhone;
+  let users = JSON.parse(localStorage.getItem("carryOnUsers")) || [];
 
-    localStorage.setItem("carryOnUsers", JSON.stringify(users));
+  const userIndex = users.findIndex((user) => user.id === loggedInUser.id);
 
-    localStorage.setItem("loggedInUser", JSON.stringify(users[userIndex]));
+  if (userIndex === -1) {
+    alert("User not found.");
+    return;
+  }
 
-    alert("Profile updated successfully!");
+  users[userIndex].name = updatedName;
+  users[userIndex].phone = updatedPhone;
 
+  localStorage.setItem("carryOnUsers", JSON.stringify(users));
+
+  localStorage.setItem("loggedInUser", JSON.stringify(users[userIndex]));
+
+  alert("Profile updated successfully!");
+  location.reload();
 });
