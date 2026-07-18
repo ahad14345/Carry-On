@@ -27,38 +27,112 @@
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   border-left: 4px solid #2563eb;
+  transition: all 0.3s ease;
+}
+
+.delivery-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.delivery-card.accepted {
+  background: #f0fdf4;
+  border-left-color: #10b981;
 }
 
 .delivery-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 15px;
+  gap: 15px;
 }
 
 .delivery-header h3 {
   color: #2563eb;
   margin: 0;
+  font-size: 18px;
+}
+
+.sender-name {
+  color: #666;
+  font-size: 13px;
+  margin: 5px 0 0 0;
 }
 
 .status-badge {
   display: inline-block;
   background: #10b981;
   color: white;
-  padding: 4px 12px;
+  padding: 6px 14px;
   border-radius: 20px;
   font-size: 12px;
   font-weight: bold;
+  white-space: nowrap;
+}
+
+.status-badge.badge-accepted {
+  background: #059669;
 }
 
 .delivery-details {
   margin-bottom: 15px;
-  line-height: 1.8;
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 8px;
 }
 
-.delivery-details p {
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 8px 0;
+  font-size: 14px;
+}
+
+.detail-label {
+  font-weight: 600;
   color: #555;
+}
+
+.detail-value {
+  color: #333;
+}
+
+.delivery-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.delivery-actions .btn {
+  flex: 1;
+}
+
+.filter-section {
+  margin: 20px 0;
+}
+
+.filter-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.filter-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.filter-card p {
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.filter-card strong {
+  font-weight: 600;
 }
 
 .form-card {
@@ -220,6 +294,12 @@ a {
   background: #1d4ed8;
 }
 
+.primary:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
 .secondary {
   background: #10b981;
 
@@ -228,6 +308,12 @@ a {
 
 .secondary:hover {
   background: #059669;
+}
+
+.secondary:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .hero-image {
