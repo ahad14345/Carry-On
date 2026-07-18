@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Travel Schedule - CarryOn</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <script src="js/auth.js"></script>
+
+    <div class="container">
+
+        <div class="form-card">
+
+            <h1>Post Travel Schedule</h1>
+
+            <p>Share your travel plans so senders can request deliveries.</p>
+
+            <form id="scheduleForm" novalidate>
+
+                <div class="form-group">
+                    <label for="departure">Departure City</label>
+                    <input
+                        type="text"
+                        id="departure"
+                        placeholder="Enter departure city"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="destination">Destination City</label>
+                    <input
+                        type="text"
+                        id="destination"
+                        placeholder="Enter destination city"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="travelDate">Travel Date</label>
+                    <input
+                        type="date"
+                        id="travelDate"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="capacity">Available Package Capacity (KG)</label>
+                    <input
+                        type="number"
+                        id="capacity"
+                        placeholder="Example: 10"
+                    >
+                </div>
+
+                <button type="submit" class="btn primary">
+                    Publish Trip
+                </button>
+
+            </form>
+
+            <br>
+
+            <a href="traveler-dashboard.html" class="btn secondary">
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+    <script src="js/travel-schedule.js"></script>
+
+</body>
+
+</html>
