@@ -61,10 +61,69 @@ else {
 
 }
 
-function editSchedule(id){
+function editSchedule(id) {
 
-    alert("Edit feature will be added in Commit 2.");
+    let schedules =
+        JSON.parse(localStorage.getItem("travelSchedules")) || [];
 
+    const schedule = schedules.find(s => s.id == id);
+
+    if (!schedule) {
+        alert("Schedule not found.");
+        return;
+    }
+
+    const departure = prompt(
+        "Edit Departure City:",
+        schedule.departure
+    );
+
+    if (departure === null) return;
+
+    const destination = prompt(
+        "Edit Destination City:",
+        schedule.destination
+    );
+
+    if (destination === null) return;
+
+    const travelDate = prompt(
+        "Edit Travel Date (YYYY-MM-DD):",
+        schedule.travelDate
+    );
+
+    if (travelDate === null) return;
+
+    const capacity = prompt(
+        "Edit Capacity (KG):",
+        schedule.capacity
+    );
+
+    if (capacity === null) return;
+
+    if (
+        departure.trim() === "" ||
+        destination.trim() === "" ||
+        travelDate.trim() === "" ||
+        capacity.trim() === ""
+    ) {
+        alert("All fields are required.");
+        return;
+    }
+
+    schedule.departure = departure.trim();
+    schedule.destination = destination.trim();
+    schedule.travelDate = travelDate;
+    schedule.capacity = Number(capacity);
+
+    localStorage.setItem(
+        "travelSchedules",
+        JSON.stringify(schedules)
+    );
+
+    alert("Travel schedule updated successfully!");
+
+    location.reload();
 }
 
 function cancelSchedule(id){
