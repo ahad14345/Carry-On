@@ -1,35 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Traveler Dashboard</title>
 
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
     <script src="js/auth.js"></script>
 
     <div class="hero">
-      <h1>Traveler Dashboard</h1>
 
-      <p id="welcome"></p>
+        <h1>Traveler Dashboard</h1>
 
-      <br />
-      <a href="profile.html" class="btn primary"> My Profile </a>
+        <p id="welcome"></p>
 
-      <br /><br />
-      <button onclick="logout()" class="btn secondary">Logout</button>
+        <br>
+
+        <a href="profile.html" class="btn primary">
+            My Profile
+        </a>
+
+        <br><br>
+
+        <a href="travel-schedule.html" class="btn primary">
+            Post Travel Schedule
+        </a>
+
+        <br><br>
+
+        <button onclick="logout()" class="btn secondary">
+            Logout
+        </button>
+
     </div>
 
     <script>
-      if (loggedInUser.role !== "Traveler") {
-        alert("Access Denied");
-        window.location.href = "login.html";
-      }
 
-      document.getElementById("welcome").innerHTML =
-        "Welcome, <b>" + loggedInUser.name + "</b>";
+        if (!loggedInUser) {
+            window.location.href = "login.html";
+        }
+
+        if (loggedInUser.role !== "Traveler") {
+            alert("Access Denied");
+            window.location.href = "login.html";
+        }
+
+        document.getElementById("welcome").innerHTML =
+            "Welcome, <b>" + loggedInUser.name + "</b>";
+
     </script>
-  </body>
+
+</body>
+
 </html>
