@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browse Deliveries - CarryOn</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <script src="js/auth.js"></script>
+
+    <div class="container">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+        "
+      >
+        <h1>Browse Delivery Requests</h1>
+        <a href="traveler-dashboard.html" class="btn secondary">
+          ← Back to Dashboard
+        </a>
+      </div>
+
+      <p>Find packages matching your travel route.</p>
+
+      <div id="deliveriesList"></div>
+    </div>
+
+    <script src="js/browse-deliveries.js"></script>
+  </body>
+</html>
