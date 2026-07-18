@@ -1,35 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sender Dashboard</title>
 
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sender Dashboard - CarryOn</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
     <script src="js/auth.js"></script>
 
     <div class="hero">
-      <h1>Sender Dashboard</h1>
 
-      <p id="welcome"></p>
+        <h1>Sender Dashboard</h1>
 
-      <br />
-      <a href="profile.html" class="btn primary"> My Profile </a>
+        <p id="welcome"></p>
 
-      <br /><br />
-      <button onclick="logout()" class="btn secondary">Logout</button>
+        <br>
+
+        <a href="profile.html" class="btn primary">
+            My Profile
+        </a>
+
+        <br><br>
+
+        <a href="delivery-request.html" class="btn primary">
+            Create Delivery Request
+        </a>
+
+        <br><br>
+
+        <button onclick="logout()" class="btn secondary">
+            Logout
+        </button>
+
     </div>
 
     <script>
-      if (loggedInUser.role !== "Sender") {
-        alert("Access Denied");
-        window.location.href = "login.html";
-      }
 
-      document.getElementById("welcome").innerHTML =
-        "Welcome, <b>" + loggedInUser.name + "</b>";
+        if (!loggedInUser) {
+            window.location.href = "login.html";
+        }
+
+        if (loggedInUser.role !== "Sender") {
+            alert("Access Denied");
+            window.location.href = "login.html";
+        }
+
+        document.getElementById("welcome").innerHTML =
+            "Welcome, <b>" + loggedInUser.name + "</b>";
+
     </script>
-  </body>
+
+</body>
+
 </html>
