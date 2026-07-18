@@ -126,8 +126,27 @@ function editSchedule(id) {
     location.reload();
 }
 
-function cancelSchedule(id){
+function cancelSchedule(id) {
 
-    alert("Cancel feature will be added in Commit 3.");
+    const confirmDelete = confirm(
+        "Are you sure you want to cancel this travel schedule?"
+    );
 
+    if (!confirmDelete) {
+        return;
+    }
+
+    let schedules =
+        JSON.parse(localStorage.getItem("travelSchedules")) || [];
+
+    schedules = schedules.filter(schedule => schedule.id != id);
+
+    localStorage.setItem(
+        "travelSchedules",
+        JSON.stringify(schedules)
+    );
+
+    alert("Travel schedule cancelled successfully!");
+
+    location.reload();
 }
