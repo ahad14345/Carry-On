@@ -1,60 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sender Dashboard - CarryOn</title>
 
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
-
+  <body>
     <script src="js/auth.js"></script>
 
-    <div class="hero">
-
-        <h1>Sender Dashboard</h1>
-
-        <p id="welcome"></p>
-
-        <br>
-
-        <a href="profile.html" class="btn primary">
-            My Profile
-        </a>
-
-        <br><br>
-
-        <a href="delivery-request.html" class="btn primary">
-            Create Delivery Request
-        </a>
-
-        <br><br>
-
-        <button onclick="logout()" class="btn secondary">
-            Logout
-        </button>
-
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">📦 CarryOn</div>
+      <div class="nav-links">
+        <a href="profile.html">My Profile</a>
+        <button onclick="logout()" class="nav-btn">Logout</button>
+      </div>
     </div>
 
-    <script>
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Sender Dashboard</h1>
+        <p id="welcome"></p>
+        <div class="hero-buttons">
+          <a href="delivery-request.html" class="btn primary">
+            📦 Create Delivery Request
+          </a>
+        </div>
+      </div>
+    </div>
 
-        if (!loggedInUser) {
-            window.location.href = "login.html";
-        }
+    <!-- Main Content -->
+    <div style="padding: 0 10%; margin-bottom: 80px">
+      <!-- Notifications Section -->
+      <h2 style="color: #2563eb; margin-bottom: 30px; font-size: 28px">
+        🔔 Notifications
+      </h2>
+      <div id="notificationsList"></div>
 
-        if (loggedInUser.role !== "Sender") {
-            alert("Access Denied");
-            window.location.href = "login.html";
-        }
+      <h2
+        style="
+          color: #2563eb;
+          margin-bottom: 30px;
+          font-size: 28px;
+          margin-top: 60px;
+        "
+      >
+        📋 Your Delivery Requests
+      </h2>
+      <div id="requestsList"></div>
+    </div>
 
-        document.getElementById("welcome").innerHTML =
-            "Welcome, <b>" + loggedInUser.name + "</b>";
-
-    </script>
-
-</body>
-
+    <script src="js/sender-dashboard.js"></script>
+  </body>
 </html>

@@ -114,6 +114,20 @@ function acceptDelivery(requestId) {
     return;
   }
 
+  // Update request status
+  request.status = "Accepted";
+  request.travelerName = loggedInUser.name;
+  request.travelerId = loggedInUser.id;
+  request.acceptedAt = new Date().toLocaleString();
+
+  // Save updated request
+  let allRequests = JSON.parse(localStorage.getItem("deliveryRequests")) || [];
+  const requestIndex = allRequests.findIndex((r) => r.id === requestId);
+  if (requestIndex !== -1) {
+    allRequests[requestIndex] = request;
+    localStorage.setItem("deliveryRequests", JSON.stringify(allRequests));
+  }
+
   // Create acceptance record
   const acceptance = {
     id: Date.now(),
