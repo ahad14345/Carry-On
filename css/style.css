@@ -1,3 +1,31 @@
+.schedule-card{
+
+    background:#ffffff;
+
+    padding:20px;
+
+    margin-top:20px;
+
+    border-radius:10px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+
+}
+
+.schedule-card h3{
+
+    color:#2563eb;
+
+    margin-bottom:10px;
+
+}
+
+.schedule-card p{
+
+    margin:6px 0;
+
+}
+
 .form-card{
 
     max-width:500px;
