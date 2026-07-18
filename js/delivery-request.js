@@ -1,6 +1,7 @@
 
 
 if (!loggedInUser) {
+    alert("Please login first.");
     window.location.href = "login.html";
 }
 
@@ -9,12 +10,49 @@ if (loggedInUser.role !== "Sender") {
     window.location.href = "login.html";
 }
 
-document
-    .getElementById("deliveryForm")
-    .addEventListener("submit", function (e) {
+const deliveryForm = document.getElementById("deliveryForm");
 
-        e.preventDefault();
+deliveryForm.addEventListener("submit", function (e) {
 
-        alert("Commit 2 will save this request.");
+    e.preventDefault();
+
+    const pickup = document.getElementById("pickup").value.trim();
+    const destination = document.getElementById("destination").value.trim();
+    const size = document.getElementById("size").value;
+    const weight = document.getElementById("weight").value;
+
+    let requests =
+        JSON.parse(localStorage.getItem("deliveryRequests")) || [];
+
+    const newRequest = {
+
+        id: Date.now(),
+
+        senderId: loggedInUser.id,
+
+        senderName: loggedInUser.name,
+
+        pickup,
+
+        destination,
+
+        size,
+
+        weight,
+
+        status: "Pending"
+
+    };
+
+    requests.push(newRequest);
+
+    localStorage.setItem(
+        "deliveryRequests",
+        JSON.stringify(requests)
+    );
+
+    alert("Delivery request submitted successfully!");
+
+    deliveryForm.reset();
 
 });
