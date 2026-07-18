@@ -1,68 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Traveler Dashboard</title>
 
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
+    <script src="js/auth.js"></script>
 
-<script src="js/auth.js"></script>
+    <div class="hero">
+      <h1>Traveler Dashboard</h1>
 
-<div class="hero">
+      <p id="welcome"></p>
 
-    <h1>Traveler Dashboard</h1>
+      <br />
 
-    <p id="welcome"></p>
+      <a href="profile.html" class="btn primary"> My Profile </a>
 
-    <br>
+      <br /><br />
 
-    <a href="profile.html" class="btn primary">
-        My Profile
-    </a>
-
-    <br><br>
-
-    <a href="travel-schedule.html" class="btn primary">
+      <a href="travel-schedule.html" class="btn primary">
         Post Travel Schedule
-    </a>
+      </a>
 
-    <br><br>
+      <br /><br />
 
-    <h2>My Travel Schedules</h2>
+      <a href="browse-deliveries.html" class="btn primary">
+        Browse Deliveries
+      </a>
 
-    <div id="scheduleList"></div>
+      <br /><br />
 
-    <br>
+      <h2>My Travel Schedules</h2>
 
-    <button onclick="logout()" class="btn secondary">
-        Logout
-    </button>
+      <div id="scheduleList"></div>
 
-</div>
+      <br />
 
-<script>
+      <button onclick="logout()" class="btn secondary">Logout</button>
+    </div>
 
-if (!loggedInUser) {
-    window.location.href = "login.html";
-}
+    <script>
+      if (!loggedInUser) {
+        window.location.href = "login.html";
+      }
 
-if (loggedInUser.role !== "Traveler") {
-    alert("Access Denied");
-    window.location.href = "login.html";
-}
+      if (loggedInUser.role !== "Traveler") {
+        alert("Access Denied");
+        window.location.href = "login.html";
+      }
 
-document.getElementById("welcome").innerHTML =
-"Welcome, <b>" + loggedInUser.name + "</b>";
+      document.getElementById("welcome").innerHTML =
+        "Welcome, <b>" + loggedInUser.name + "</b>";
+    </script>
 
-</script>
-
-<script src="js/traveler-dashboard.js"></script>
-
-</body>
-
+    <script src="js/traveler-dashboard.js"></script>
+  </body>
 </html>
