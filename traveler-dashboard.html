@@ -11,36 +11,49 @@
   <body>
     <script src="js/auth.js"></script>
 
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">✈️ CarryOn</div>
+      <div class="nav-links">
+        <a href="profile.html">My Profile</a>
+        <button onclick="logout()" class="nav-btn">Logout</button>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
     <div class="hero">
-      <h1>Traveler Dashboard</h1>
+      <div class="hero-text">
+        <h1>Traveler Dashboard</h1>
+        <p id="welcome"></p>
+        <div class="hero-buttons">
+          <a href="travel-schedule.html" class="btn primary">
+            🗺️ Post Travel Schedule
+          </a>
+          <a href="browse-deliveries.html" class="btn primary">
+            📦 Browse Deliveries
+          </a>
+        </div>
+      </div>
+    </div>
 
-      <p id="welcome"></p>
+    <!-- Main Content -->
+    <div style="padding: 0 10%; margin-bottom: 80px">
+      <h2 style="color: #2563eb; margin-bottom: 30px; font-size: 28px">
+        � Your Accepted Deliveries
+      </h2>
+      <div id="acceptedDeliveriesList"></div>
 
-      <br />
-
-      <a href="profile.html" class="btn primary"> My Profile </a>
-
-      <br /><br />
-
-      <a href="travel-schedule.html" class="btn primary">
-        Post Travel Schedule
-      </a>
-
-      <br /><br />
-
-      <a href="browse-deliveries.html" class="btn primary">
-        Browse Deliveries
-      </a>
-
-      <br /><br />
-
-      <h2>My Travel Schedules</h2>
-
+      <h2
+        style="
+          color: #2563eb;
+          margin-bottom: 30px;
+          font-size: 28px;
+          margin-top: 60px;
+        "
+      >
+        �🗺️ My Travel Schedules
+      </h2>
       <div id="scheduleList"></div>
-
-      <br />
-
-      <button onclick="logout()" class="btn secondary">Logout</button>
     </div>
 
     <script>
@@ -54,7 +67,7 @@
       }
 
       document.getElementById("welcome").innerHTML =
-        "Welcome, <b>" + loggedInUser.name + "</b>";
+        "Welcome, <b>" + loggedInUser.name + "</b>! Ready to travel and earn?";
     </script>
 
     <script src="js/traveler-dashboard.js"></script>

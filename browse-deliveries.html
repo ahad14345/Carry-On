@@ -11,50 +11,114 @@
   <body>
     <script src="js/auth.js"></script>
 
-    <div class="container">
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="logo">📦 CarryOn</div>
+      <div class="nav-links">
+        <a href="traveler-dashboard.html">Back to Dashboard</a>
+        <button onclick="logout()" class="nav-btn">Logout</button>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Browse Delivery Requests</h1>
+        <p>Find packages matching your travel route and earn money</p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div style="padding: 0 10%; margin-bottom: 80px">
+      <!-- Your Route Filter Card -->
       <div
+        class="filter-card"
         style="
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 20px;
+          margin-bottom: 40px;
+          background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+          color: white;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         "
       >
-        <h1>Browse Delivery Requests</h1>
-        <a href="traveler-dashboard.html" class="btn secondary">
-          ← Back to Dashboard
-        </a>
-      </div>
-
-      <p>Find packages matching your travel route.</p>
-
-      <div class="filter-section">
-        <div class="filter-card">
-          <h3>Your Travel Route</h3>
-          <p>
-            <strong>From:</strong>
-            <span id="travelerDeparture">-</span>
-          </p>
-          <p>
-            <strong>To:</strong>
-            <span id="travelerDestination">-</span>
-          </p>
-          <p>
-            <strong>Travel Date:</strong>
-            <span id="travelerDate">-</span>
-          </p>
+        <h2 style="color: white; margin-bottom: 20px">✈️ Your Travel Route</h2>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+          "
+        >
+          <div>
+            <p
+              style="
+                margin: 0 0 8px 0;
+                font-size: 12px;
+                opacity: 0.9;
+                text-transform: uppercase;
+              "
+            >
+              From
+            </p>
+            <p
+              style="margin: 0; font-size: 18px; font-weight: bold"
+              id="travelerDeparture"
+            >
+              -
+            </p>
+          </div>
+          <div>
+            <p
+              style="
+                margin: 0 0 8px 0;
+                font-size: 12px;
+                opacity: 0.9;
+                text-transform: uppercase;
+              "
+            >
+              To
+            </p>
+            <p
+              style="margin: 0; font-size: 18px; font-weight: bold"
+              id="travelerDestination"
+            >
+              -
+            </p>
+          </div>
+          <div>
+            <p
+              style="
+                margin: 0 0 8px 0;
+                font-size: 12px;
+                opacity: 0.9;
+                text-transform: uppercase;
+              "
+            >
+              Travel Date
+            </p>
+            <p
+              style="margin: 0; font-size: 18px; font-weight: bold"
+              id="travelerDate"
+            >
+              -
+            </p>
+          </div>
         </div>
       </div>
 
-      <div style="margin-top: 20px">
-        <h2>
-          Matching Requests
-          <span id="matchCount" style="font-size: 14px; color: #666">
-            (0)
-          </span>
-        </h2>
-      </div>
+      <!-- Matching Requests Header -->
+      <h2 style="color: #2563eb; margin-bottom: 30px; font-size: 28px">
+        📦 Matching Requests
+        <span
+          id="matchCount"
+          style="font-size: 18px; color: #94a3b8; font-weight: normal"
+        >
+          (0)
+        </span>
+      </h2>
 
+      <!-- Deliveries List -->
       <div id="deliveriesList"></div>
     </div>
 
