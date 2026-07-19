@@ -43,18 +43,25 @@
     line-height: 1.5;
 
 }
-
 .form-card{
 
     max-width:500px;
 
-    margin:auto;
+    margin:40px auto;
+
+    padding:30px;
+
+    background:#ffffff;
+
+    border-radius:14px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
 
 }
 
 .form-group{
 
-    margin-bottom:15px;
+    margin-bottom:20px;
 
 }
 
@@ -62,13 +69,17 @@
 
     display:block;
 
-    margin-bottom:5px;
+    margin-bottom:8px;
 
-    font-weight:bold;
+    font-weight:600;
+
+    color:#333;
 
 }
 
-.form-group input{
+.form-group input,
+
+.form-group select{
 
     width:100%;
 
@@ -81,6 +92,20 @@
     font-size:16px;
 
     box-sizing:border-box;
+
+    transition:all .3s ease;
+
+}
+
+.form-group input:focus,
+
+.form-group select:focus{
+
+    border-color:#2563eb;
+
+    outline:none;
+
+    box-shadow:0 0 8px rgba(37,99,235,.25);
 
 }
 
